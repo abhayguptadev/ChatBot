@@ -4,13 +4,6 @@ import 'ChatMsg.dart';
 
 class GroqApiService {
   static const String _apiKey = 'YOUR API HERE';
-
-
-  // now question is how secure our api
-  // use api in your backend, and make venv in code and add this to .gitignore
-  // full code on my github account " @abhayguptadev "
-
-
   static const String _baseUrl = 'https://api.groq.com/openai/v1/chat/completions';
   static const String _model = 'llama-3.1-8b-instant';
   Future<String> sendMessageToGroq(List<ChatMessage> history) async {
@@ -27,6 +20,9 @@ class GroqApiService {
           'temperature': 0.7,
         }),
       );
+
+      //I have had the icon for this app created by ChatGPT.
+      // now use it
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
