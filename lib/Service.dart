@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'ChatMsg.dart';
 
 class GroqApiService {
-  static const String _apiKey = 'YOUR API HERE';
+  static const String _apiKey = 'YOUR API KEY';
   static const String _baseUrl = 'https://api.groq.com/openai/v1/chat/completions';
   static const String _model = 'llama-3.1-8b-instant';
   Future<String> sendMessageToGroq(List<ChatMessage> history) async {
