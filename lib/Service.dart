@@ -1,11 +1,12 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'ChatMsg.dart';
+import 'api_key.dart';
 
 class GroqApiService {
-  static const String _apiKey = 'YOUR API KEY';
+  static const String _apiKey = ApiKey.api;
   static const String _baseUrl = 'https://api.groq.com/openai/v1/chat/completions';
-  static const String _model = 'llama-3.1-8b-instant';
+  static const String _model = 'openai/gpt-oss-20b';
   Future<String> sendMessageToGroq(List<ChatMessage> history) async {
     try {
       final response = await http.post(
@@ -20,10 +21,6 @@ class GroqApiService {
           'temperature': 0.7,
         }),
       );
-
-      //I have had the icon for this app created by ChatGPT.
-      // now use it
-
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         // FIX 2: Correct array navigation mapping index
